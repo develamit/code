@@ -3,6 +3,35 @@ Find the common elements (return as an array) from 2 sorted ascending integer ar
 """
 
 #=================================================
+# Approach 0
+#=================================================
+# Implement your function below.
+def common_elements3(list1, list2):
+    result = []
+
+    idx1 = 0
+    idx2 = 0
+
+    while idx1 < len(list1) and idx2 < len(list2):
+        print('idx1: {},     idx2: {}'.format(idx1, idx2))
+        if list1[idx1] == list2[idx2]:
+            print('    matched idx1: {} elem1: {},     idx2: {} elem2: {}'.format(idx1,list1[idx1], idx2, list2[idx2]))
+            result.append(list1[idx1])
+            idx1 += 1
+            idx2 += 1
+
+        elif list1[idx1] > list2[idx2]:
+            idx2 += 1
+
+        else:
+            idx1 += 1
+
+
+    return result
+
+
+
+#=================================================
 # Approach 1
 #=================================================
 # Implement your function below.
@@ -94,19 +123,19 @@ if __name__ == '__main__':
     list_a1 = [1, 3, 4, 6, 7, 9]
     list_a2 = [1, 2, 4, 5, 9, 10]
     # common_elements(list_a1, list_a2) should return [1, 4, 9] (a list).
-    res = common_elements2(list_a1, list_a2)
+    res = common_elements3(list_a1, list_a2)
     print('For {} and {} common elements are: {}\n\n'.format(list_a1, list_a2, res))
     
     list_b1 = [1, 2, 9, 10, 11, 12]
     list_b2 = [0, 1, 2, 3, 4, 5, 8, 9, 10, 12, 14, 15]
     # common_elements(list_b1, list_b2) should return [1, 2, 9, 10, 12] (a list).
-    res = common_elements2(list_b1, list_b2)
+    res = common_elements3(list_b1, list_b2)
     print('For {} and {} common elements are: {}\n\n'.format(list_b1, list_b2, res))
     
     #'''
     list_c1 = [0, 1, 2, 3, 4, 5]
     list_c2 = [6, 7, 8, 9, 10, 11]
     # common_elements(list_b1, list_b2) should return [] (an empty list).
-    res = common_elements2(list_c1, list_c2)
+    res = common_elements3(list_c1, list_c2)
     print('For {} and {} common elements are: {}\n\n'.format(list_c1, list_c2, res))
     #'''
